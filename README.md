@@ -4,6 +4,12 @@ This is not an official submission to CEC 2024. It is a practice run to prepare 
 
 All documents for this competition can be found in the `documents` folder.
 
+Datasets for the competition is in the `data` folder.
+
+Modules created for this project are in the `modules` folder.
+
+Extra pages can be found in the `pages` folder.
+
 ## How to view this project
 
 This project can be viewed online or it can be run locally.
