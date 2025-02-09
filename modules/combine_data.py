@@ -1,7 +1,7 @@
 import os
 import pandas as pd
 
-def combine_data(dataset_folder, output_file):
+def combine_data(dataset_folder, output_file, scaling_factors):
     """
     This function combines all the data from the CSV files in the dataset folder into a CSV specified at output_file.
     It also returns the combined data as a pandas DataFrame.
@@ -27,6 +27,11 @@ def combine_data(dataset_folder, output_file):
             combined_df = pd.merge(combined_df, df, on=['x', 'y'], how='outer')
             # Take the absolute value of all numerical columns
             combined_df = combined_df.abs()
+
+    # Apply scaling factors to the combined dataframe
+    for material, scaling_factor in scaling_factors.items():
+        if material in combined_df.columns:
+            combined_df[material] *= scaling_factor
 
     # Save the combined dataframe to a new CSV file
     combined_df.to_csv(output_file, index=False)
